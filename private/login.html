@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="id"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex"><title>Login</title><link rel="stylesheet" href="/style.css"></head>
+<body><div class="wrap" style="max-width:380px"><div class="panel"><b>Login pengelola</b>
+<label>Username</label><input type="text" id="u" autocomplete="username">
+<label>Password</label><input type="password" id="p" autocomplete="current-password">
+<div class="row"><button class="btn" id="go">Masuk</button></div></div></div>
+<script>
+async function login(){
+  const r = await fetch('/admin/login',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({username:u.value,password:p.value})});
+  if (r.ok) location.reload(); else { const d = await r.json().catch(()=>({})); const t=document.createElement('div');t.className='toast';t.textContent=d.error||'Gagal login (coba lagi nanti).';document.body.appendChild(t);setTimeout(()=>t.remove(),3000); }
+}
+go.onclick = login; p.onkeydown = e => { if (e.key === 'Enter') login(); };
+</script></body></html>
