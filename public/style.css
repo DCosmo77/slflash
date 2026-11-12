@@ -1,0 +1,42 @@
+:root{--bg:#f6f5f2;--surface:#fff;--ink:#1d1d1f;--muted:#6b6b70;--line:#e2e0da;--accent:#2f6fed;--accent-ink:#fff;--ph:#919191;--danger:#c0392b;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root{--bg:#16171a;--surface:#202226;--ink:#f1f1f3;--muted:#9a9aa2;--line:#33353b;--accent:#6b9bff;--accent-ink:#0b1020;--ph:#4a4c53;--danger:#ff7b6b;color-scheme:dark}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;min-height:100vh}
+a{color:var(--accent)}
+.wrap{max-width:1000px;margin:0 auto;padding:24px 20px 40px}
+.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;font-size:14px}
+.card-page{display:grid;grid-template-columns:minmax(0,360px) minmax(0,1fr);gap:48px;align-items:start}
+.pic{aspect-ratio:4/5;background:var(--ph);border-radius:16px;overflow:hidden;display:grid;place-items:center;color:#fff;font-size:28px;font-weight:700}
+.pic img{width:100%;height:100%;object-fit:cover;display:block}
+.vocab{margin-top:16px;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px;text-align:center;font-size:clamp(26px,5vw,34px);font-weight:700}
+.right{padding-top:clamp(0px,8vw,120px);display:flex;flex-direction:column;align-items:center;gap:16px}
+.audio{width:100%;display:flex;gap:12px;align-items:center;justify-content:center;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:16px;flex-wrap:wrap}
+button{font:inherit;cursor:pointer}
+.play{display:flex;align-items:center;gap:10px;background:var(--accent);color:var(--accent-ink);border:0;border-radius:999px;padding:12px 24px;font-weight:700;font-size:18px}
+.slow{background:transparent;border:1px solid var(--line);color:var(--ink);border-radius:999px;padding:11px 16px}
+.bars{display:flex;gap:3px;align-items:center;height:22px}
+.bars i{width:4px;height:6px;border-radius:2px;background:currentColor;display:block}
+.on .bars i{animation:b .7s ease-in-out infinite}
+.on .bars i:nth-child(2){animation-delay:.15s}.on .bars i:nth-child(3){animation-delay:.3s}.on .bars i:nth-child(4){animation-delay:.45s}
+@keyframes b{0%,100%{height:6px}50%{height:22px}}
+.spell{width:min(100%,420px);background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px;text-align:center}
+.spell small{display:block;color:var(--muted);font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+.letters{font-size:20px;letter-spacing:.15em;font-weight:600;word-break:break-word}
+.ipa{display:block;font:500 26px/1.3 "Noto Sans","Segoe UI",system-ui,sans-serif;margin-top:6px;color:var(--accent)}
+.meaning{color:var(--muted);text-align:center}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:14px;margin-top:16px}
+.tile{display:block;text-decoration:none;color:inherit;background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.tile .pic{border-radius:0;font-size:18px}.tile b{display:block;padding:10px;text-align:center}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px;margin-bottom:18px}
+label{display:block;font-size:13px;color:var(--muted);margin:10px 0 4px}
+input[type=text],input[type=password]{width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink);font:inherit}
+.row{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+.btn{background:var(--accent);color:var(--accent-ink);border:0;border-radius:10px;padding:10px 16px;font-weight:600}
+.btn.alt{background:transparent;color:var(--ink);border:1px solid var(--line)}.btn.del{background:transparent;color:var(--danger);border:1px solid var(--line)}
+.item{display:flex;gap:12px;align-items:center;padding:10px 0;border-top:1px solid var(--line);flex-wrap:wrap}
+.thumb{width:44px;height:55px;border-radius:8px;background:var(--ph);overflow:hidden;flex:none}
+.thumb img{width:100%;height:100%;object-fit:cover}
+.item .meta{flex:1;min-width:120px}.item .meta small{color:var(--muted);display:block}
+.toast{position:fixed;left:50%;bottom:20px;transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:10px 16px;border-radius:10px;font-size:14px;z-index:5}
+@media (max-width:720px){.card-page{grid-template-columns:1fr;gap:20px}.pic{max-width:360px;margin:0 auto}.vocab{max-width:360px;margin-left:auto;margin-right:auto}.right{padding-top:0}.wrap{padding:16px 16px 32px}}
